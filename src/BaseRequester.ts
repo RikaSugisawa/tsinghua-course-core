@@ -1,6 +1,7 @@
 import * as request from 'request-promise-native'
 import * as Iconv from 'iconv-lite'
 import * as PromisePool from 'es6-promise-pool'
+import * as $ from 'cheerio'
 
 export interface Options {
     url: string
@@ -9,9 +10,16 @@ export interface Options {
     encoding?: string | null
 }
 
+class AuthenticationRequired extends Error {
+    constructor(message) {
+        super(message)
+        this.name = 'AuthenticationRequired'
+    }
+}
+
 export default class BaseRequester {
     /*
-    由于我校奇葩的服务器逻辑，并发超过2时会发生奇怪的bug<s>牛头不对马嘴</s>
+    由于我校奇葩的服务器逻辑，并发超过1时会发生奇怪的bug<s>牛头不对马嘴</s>
      */
     static readonly MAX_THREAD = 1
 
@@ -33,7 +41,10 @@ export default class BaseRequester {
         encoding = encoding || options['encoding'] || null
         // options['encoding'] = encoding
         if (encoding) options['encoding'] = null
-        return encoding ? Iconv.decode((await request(options)), encoding).toString() : await request(options)
+        const ret = encoding ? Iconv.decode((await request(options)), encoding).toString() : await request(options)
+        if (ret.indexOf("用户登陆超时"))
+            throw new AuthenticationRequired("用户登陆超时或访问内容不存在。请重试，如访问仍然失败，请与系统管理员联系。")
+        return ret
     }
 
     /**

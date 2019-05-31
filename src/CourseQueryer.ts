@@ -43,7 +43,7 @@ export default class CourseQueryer extends BaseRequester {
     }
 
     /**
-     * Only used for get number of pages
+     * Only used for get the number of pages
      * DO NOT use this for scrapping pages
      */
     private async getOnePage(url, m, page = 1): Promise<string> {
