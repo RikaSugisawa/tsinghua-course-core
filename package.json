@@ -1,0 +1,28 @@
+{
+  "name": "tsinghua-course-core",
+  "version": "0.0.1",
+  "description": "An utility for courses electing in the Tsinghua University.",
+  "main": "index.es6",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "run": "node index.js"
+  },
+  "author": "Rika",
+  "license": "ISC",
+  "dependencies": {
+    "@babel/runtime": "^7.4.5",
+    "es6-promise-pool": "^2.5.0",
+    "cheerio": "^1.0.0-rc.3",
+    "iconv-lite": "latest",
+    "request": "^2.88.0",
+    "request-promise-native": "^1.0.7",
+    "tough-cookie": "~2.4.3"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.4.4",
+    "@babel/core": "^7.4.5",
+    "@babel/plugin-transform-runtime": "^7.4.4",
+    "@babel/preset-env": "^7.4.5",
+    "@types/tough-cookie": "^2.3.5"
+  }
+}
