@@ -1,7 +1,6 @@
 import * as request from 'request-promise-native'
 import * as Iconv from 'iconv-lite'
 import * as PromisePool from 'es6-promise-pool'
-import * as $ from 'cheerio'
 
 export interface Options {
     url: string

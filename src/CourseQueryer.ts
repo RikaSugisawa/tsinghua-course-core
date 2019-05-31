@@ -3,7 +3,6 @@ import LoginManager from './LoginManager'
 import * as $ from 'cheerio'
 import {RemainInfo, OpeningInfo} from './Structures'
 import * as assert from "assert";
-import {deprecate} from "util";
 
 export default class CourseQueryer extends BaseRequester {
     _token: string
