@@ -4,6 +4,8 @@
 ### Example
 登录并获取当前开课信息
 ```javascript
+import CourseManager from './src/CourseManager'
+
 const mgr = new CourseManager();
 (async function () {
   const img=await mgr.loginMgr.getCaptcha()
