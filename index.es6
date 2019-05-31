@@ -1,9 +1,9 @@
 import CourseManager from './src/CourseManager'
-import {token} from './pref.config.json'
+import {JSESSIONID} from './pref.config.json'
 
 const mgr = new CourseManager();
 (async function () {
-  mgr.loginMgr._login(token)
+  mgr.loginMgr._login(JSESSIONID)
   return await mgr.crsMgr.getOpeningInfo()
 })().then(
   (e) =>
