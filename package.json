@@ -3,6 +3,9 @@
   "version": "0.0.1",
   "description": "An utility for courses electing in the Tsinghua University.",
   "main": "index.es6",
+  "repository": {
+    "url": "https://github.com/RikaSugisawa/tsinghua-course-core"
+  },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "run": "node index.js"
@@ -16,7 +19,8 @@
     "iconv-lite": "latest",
     "request": "^2.88.0",
     "request-promise-native": "^1.0.7",
-    "tough-cookie": "~2.4.3"
+    "tough-cookie": "~2.4.3",
+    "lodash": "^4.17.11"
   },
   "devDependencies": {
     "@babel/cli": "^7.4.4",

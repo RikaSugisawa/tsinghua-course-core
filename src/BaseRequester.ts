@@ -41,7 +41,7 @@ export default class BaseRequester {
         // options['encoding'] = encoding
         if (encoding) options['encoding'] = null
         const ret = encoding ? Iconv.decode((await request(options)), encoding).toString() : await request(options)
-        if (ret.indexOf("用户登陆超时"))
+        if (ret.indexOf("用户登陆超时") > -1)
             throw new AuthenticationRequired("用户登陆超时或访问内容不存在。请重试，如访问仍然失败，请与系统管理员联系。")
         return ret
     }
